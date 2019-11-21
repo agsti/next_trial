@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
+  "devToolsPort": 19003,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 11861,
-  "expoServerNgrokUrl": "https://se-5cb.anonymous.patientapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.se-5cb.anonymous.patientapp.exp.direct",
-  "ngrokPid": 11948
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://nk-v9t.anonymous.patientapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.nk-v9t.anonymous.patientapp.exp.direct",
+  "ngrokPid": 17582
 }
