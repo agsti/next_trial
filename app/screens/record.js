@@ -131,7 +131,7 @@ export default class CameraExample extends React.Component {
     }
   }
   
-  getCameraOrPreview(step_state, chosen_interaction, interaction_step) {
+  getCameraOrPreview(step_state) {
     const ratio_height = 4 * width / 3;
     if (step_state == INTERACTION_REVIEW ) {
       const {uri} = this.state.video;
@@ -145,26 +145,20 @@ export default class CameraExample extends React.Component {
         style={{ height: ratio_height, width: width }}
       />
     } else {
-
-      let text_overlay;
-      if (step_state == NO_INTERACTION) {
-        text_overlay = <FlowChooser flows={sample_data} onItemSelected={this.choose_flow.bind(this)} />
-      } else  {
-        text_overlay = <FlowView flow={chosen_interaction} step_index={interaction_step} />
-      }
-
       return <Camera
         style={{ height: ratio_height, width: width }}
         type={Camera.Constants.Type.front}
         ref={(ref) => this.camera = ref}
       >
-        <View
-          style={this.styleSheet.overlayContainer}>
-          {
-            text_overlay
-          }
-        </View>
       </Camera>
+    }
+  }
+
+  getFlowOverlay(step_state, chosen_interaction, interaction_step){
+    if (step_state == NO_INTERACTION) {
+      return <FlowChooser flows={sample_data} onItemSelected={this.choose_flow.bind(this)} />
+    } else  {
+      return <FlowView flow={chosen_interaction} step_index={interaction_step} />
     }
   }
 
@@ -179,7 +173,14 @@ export default class CameraExample extends React.Component {
     } else {
       return (
         <View style={this.styleSheet.container}>
-          {this.getCameraOrPreview(step_state, chosen_interaction, interaction_step)}
+          <View
+            style={{ position: "absolute", width: "100%", top: 10, zIndex: 2, flex: 1, justifyContent: "flex-end", alignItems: "center" }}>
+            {
+              this.getFlowOverlay(step_state, chosen_interaction, interaction_step)
+            }
+          </View>
+
+          {this.getCameraOrPreview(step_state)}
           <View style={{ position: "absolute", width: "100%", bottom: 10, zIndex: 2, flex: 1, justifyContent: "flex-end", alignItems: "center" }}>
             {this.getInteractiveButton(step_state, chosen_interaction, interaction_step)}
           </View>
