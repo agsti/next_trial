@@ -17,12 +17,12 @@ const styleSheet  = {
 
 export default function(props){
     const {onItemSelected, flows} = props;
-    return flows.map((inter, i)=>{
-        return <TouchableOpacity
+    return flows.map((inter, i) =>
+        <TouchableOpacity
             style={styleSheet.button}
             key={i}
             onPress={() => {onItemSelected && onItemSelected(i)}}>
             <Text style={styleSheet.buttonText}> {inter.title} </Text>
         </TouchableOpacity>
-    });
+    );
 }

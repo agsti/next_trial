@@ -6,8 +6,7 @@ const styleSheet = {
         flex: 0.1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 10,
-        alignSelf: "flex-end"
+        padding: 10
     },
 
     buttonText: {
@@ -17,20 +16,13 @@ const styleSheet = {
 }
 
 export default function (props) {
-    const [index, setIndex] = useState(0);
 
-    const { flow, onFlowFinished } = props;
+    const { flow, step_index } = props;
 
-    const interaction_text = flow[index];
+    const interaction_text = flow[step_index].q;
     return <TouchableOpacity
         style={styleSheet.button}
-        onPress={() => {
-            if (index + 1 < flow.length) {
-                setIndex(index + 1);
-            } else {
-                onFlowFinished && onFlowFinished();
-            }
-        }}>
+        >
         <Text style={styleSheet.buttonText}> {interaction_text}</Text>
     </TouchableOpacity>;
 }
