@@ -8,6 +8,7 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 
 import DashboardScreen from './app/screens/dashboard'
 import RecordScreen from './app/screens/record'
+import ChatScreen from './app/screens/chat'
 
 import OnboardingScreen1 from './app/screens/welcome/1'
 import OnboardingScreen2 from './app/screens/welcome/2'
@@ -53,6 +54,13 @@ const routeConfigs = {
     navigationOptions: {
       tabBarLabel: "Welcome",
       tabBarIcon: createIcon('diff-modified'),
+    }
+  },
+  Chat: {
+    screen: ChatScreen,
+    navigationOptions: {
+      tabBarLabel: "chat",
+      tabBarIcon: createIcon('comment'),
     }
   },
   
