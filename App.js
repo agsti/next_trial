@@ -1,12 +1,19 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Octicons';  
 
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer} from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import {View} from 'react-native';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 import DashboardScreen from './app/screens/dashboard'
 import RecordScreen from './app/screens/record'
+
+import OnboardingScreen1 from './app/screens/welcome/1'
+import OnboardingScreen2 from './app/screens/welcome/2'
+import OnboardingScreen3_having from './app/screens/welcome/3_having'
+import OnboardingScreen3_not_having from './app/screens/welcome/3_not_having'
+import Onboarding4 from './app/screens/welcome/4'
 
 function createIcon(icon) {
   return ({ tintColor }) => (  
@@ -14,6 +21,17 @@ function createIcon(icon) {
         <Icon style={[{color: tintColor}]} size={25} name={icon}/>  
     </View>)
 }
+
+
+const OnboardingStack = createStackNavigator({
+  onboarding1: OnboardingScreen1,
+  onboarding2: OnboardingScreen2,
+  onboarding3_having: OnboardingScreen3_having,
+  onboarding3_not_having: OnboardingScreen3_not_having,
+  onboarding4: Onboarding4,
+},
+{ headerMode: 'none' });
+
 
 const routeConfigs = {
   Home: {
@@ -30,6 +48,14 @@ const routeConfigs = {
       tabBarIcon: createIcon('dashboard'),
     }
   },
+  Hello: {
+    screen: OnboardingStack,
+    navigationOptions: {
+      tabBarLabel: "Welcome",
+      tabBarIcon: createIcon('diff-modified'),
+    }
+  },
+  
 };
 
 const navigatorConfig = {

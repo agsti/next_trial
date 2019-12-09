@@ -21,17 +21,11 @@ export default class CameraExample extends React.Component {
     hasCameraPermission: null,
     chosen_interaction: null,
     interaction_step: 0,
-    step_state: NO_INTERACTION
+    step_state: NO_INTERACTION, 
+    video: null
   };
 
   styleSheet = {
-    overlayContainer: {
-      flex: 1,
-      flexDirection: 'column',
-      alignContent: 'center',
-      justifyContent: "flex-start",
-      backgroundColor: 'transparent'
-    },
     preview: {
       flex: 1,
       justifyContent: 'flex-end',
@@ -65,7 +59,7 @@ export default class CameraExample extends React.Component {
   async takeVideo() {
     if (this.camera) {
       try {
-        const recordPromise = this.camera.recordAsync({});
+        const recordPromise = this.camera.recordAsync({options: {quality: "4:3"}});
         this.setState({ video: recordPromise })
       } catch (e) {
         console.error(e);
@@ -138,6 +132,7 @@ export default class CameraExample extends React.Component {
       return <Video
         source={{ uri: uri }}
         rate={1.0}
+        resizeMode="cover"
         volume={1.0}
         isMuted={false}
         shouldPlay
@@ -162,7 +157,6 @@ export default class CameraExample extends React.Component {
     }
   }
 
-
   render() {
     const { permissionsOk, chosen_interaction, step_state, interaction_step } = this.state;
 
@@ -174,7 +168,7 @@ export default class CameraExample extends React.Component {
       return (
         <View style={this.styleSheet.container}>
           <View
-            style={{ position: "absolute", width: "100%", top: 10, zIndex: 2, flex: 1, justifyContent: "flex-end", alignItems: "center" }}>
+            style={{ position: "absolute", width: "100%", top: 10, zIndex: 2, flex: 1, justifyContent: "flex-start", alignItems: "center" }}>
             {
               this.getFlowOverlay(step_state, chosen_interaction, interaction_step)
             }

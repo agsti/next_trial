@@ -19,7 +19,6 @@ const styleSheet = {
 }
 
 export default function (props) {
-
     const { flow, step_index } = props;
 
     const interaction_text = flow[step_index].q;
