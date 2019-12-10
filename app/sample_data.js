@@ -3,11 +3,11 @@ export default [
         title: "Day 3 and 5",
         questions: [
             { 
-                q:"How are you feeling about your recent hip surgergy?",
+                q:"We will now ask you some questions about how you are recovering following your hip surgery",
                 type: "VIDEO"
             },
             { 
-                q:"Are you uncomfortably bleeding?",
+                q:"Have you experienced any unconfortable bleeding from the wound site?",
                 type: "VIDEO"
             },
             { 
@@ -15,15 +15,15 @@ export default [
                 type: "VIDEO"
             },
             { 
-                q:"How long did it take to get soaked?",
+                q:"How many times?",
                 type: "VIDEO"
             },
             { 
-                q:"Can you check if you have fever?",
+                q:"Can you check your tempreature?",
                 type: "VIDEO"
             },
             { 
-                q:"What is the temperature?",
+                q:"What is your temperature?",
                 type: "VIDEO"
             },
             { 
@@ -39,11 +39,11 @@ export default [
                 type: "VIDEO"
             },
             { 
-                q:"How intense is it? Just explain",
+                q:"How bad is your pain out of 10? where 1 being you can hardly feel it , and 10 being unbearable",
                 type: "VIDEO"
             },
             { 
-                q:"Please show the dressing to the camera",
+                q:"Point the camera at the wound to take a picture. If there's a dressing on, just leave it on.",
                 type: "VIDEO"
             },
         ]
@@ -52,11 +52,15 @@ export default [
         title: "Day 10 or 13",
         questions: [
             {
+                q: "We will now ask you some questions about how you are recovering following your hip surgery",
+                type: "VIDEO"
+            },
+            {
                 q: "How are you feeling about your recovery process? ",
                 type: "VIDEO"
             },
             {
-                q: "Are you uncomfortably bleeding?",
+                q: "Have you experienced any unconfortable bleeding from the wound site?",
                 type: "VIDEO"
             },
             {
@@ -64,15 +68,15 @@ export default [
                 type: "VIDEO"
             },
             {
-                q: "How long did it take to get soaked?",
+                q: "How many times?",
                 type: "VIDEO"
             },
             {
-                q: "Can you check if you have fever?",
+                q: "Can you check if your temperature?",
                 type: "VIDEO"
             },
             {
-                q: "What is the temperature?",
+                q: "What is your temperature?",
                 type: "VIDEO"
             },
             {
@@ -88,24 +92,24 @@ export default [
                 type: "VIDEO"
             },
             {
-                q: "How intense is it? Just explain, please",
+                q: "How bad is your pain out of 10? where 1 being you can hardly feel it , and 10 being unbearable",
                 type: "VIDEO"
             },
             {
-                q: "Is there what you would consider too much redness around the wound?",
+                q: "Is there worsening redness around the wound?",
                 type: "VIDEO"
             },
             {
-                q: "Is there pus around the wound?",
+                q: "Is there any pus coming from the wound?",
                 type: "VIDEO"
             },
             {
-                q: "lastly, is there discharge around the wound?",
+                q: "lastly, is there any other discharge from the wound?",
                 type: "VIDEO"
             },
             {
-                q: "Point the camera at the wound please",
-                type: "VIDEO"
+                q: "Point the camera at the wound to take a picture",
+                type: "PICTURE"
             },
         ]
     },
@@ -113,7 +117,7 @@ export default [
         title: "Day 27 or 34 or 41",
         questions: [
             {
-                q:"How are you feeling about your recent hip surgergy?",
+                q:"We will now ask you some questions about how you are recovering following your hip surgery",
                 type: "VIDEO"
             },
             {
@@ -121,11 +125,11 @@ export default [
                 type: "VIDEO"
             },
             {
-                q:"Have you felt pain recently?",
+                q:"Have you felt any pain recently?",
                 type: "VIDEO"
             },
             {
-                q:"How are you finding your mobility routine?",
+                q:"How are you finding your physiotherapy exercices?",
                 type: "VIDEO"
             },
             {
@@ -133,20 +137,20 @@ export default [
                 type: "VIDEO"
             },
             {
-                q:"Are you feeling any pain during the routine?",
+                q:"Are you feeling any pain during the exercies?",
                 type: "VIDEO"
             },
             {
-                q:"Is the pain stopping you from performing the exercice?",
+                q:"Is the pain unmanageable?",
                 type: "VIDEO"
             },
             {
-                q:"Do you feel like you need in person help?",
+                q:"Do you feel like you need a physiotherapist to help you do the exercices?",
                 type: "VIDEO"
             },
             {
-                q:"Show the scar or dressing to the camera please",
-                type: "VIDEO"
+                q:"Point the camera at the wound to take a picture. If there's a dressing on, just leave it on.",
+                type: "PICTURE"
             },
         ]
     }
