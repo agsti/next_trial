@@ -1,14 +1,18 @@
 import React from 'react'
-import { View, StyleSheet, StatusBar } from 'react-native';
+import { View, StyleSheet, Platform, StatusBar } from 'react-native';
 
-import TopBar from '../components/dashboard/top_bar'
+import TopBar from '../components/dashboard/status_bar'
 import MainContent from '../components/dashboard/main_content'
 
 export default class DashboardScreen extends React.Component {
 
 
     styleSheet = StyleSheet.create({
-        
+        container:{ 
+            marginTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
+            flex:1 ,
+            backgroundColor: "pink" 
+        },
         bottomBar :{
             flex: 1,
             backgroundColor : "blue"
@@ -17,14 +21,13 @@ export default class DashboardScreen extends React.Component {
 
 
 
-    render() {
-        return <View style={{ flex:1 , backgroundColor: "pink" }}>
-            <StatusBar backgroundColor="red" barStyle="light-content" />
-            <TopBar />
+    render(props) {
+        return <View style={this.styleSheet.container}>
+            <View style={this.styleSheet.bottomBar}>
 
             <MainContent />
             
-            <View style={this.styleSheet.bottomBar}>
+            <TopBar />
 
             </View>
         </View>
