@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text, View, Picker, Button, TouchableOpacity } from 'react-native'
+import { Text, View, Picker,  TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Octicons';
-import button from '../../components/common/button';
+import Button from '../../components/common/button';
 
 
 export default class Onboarding3_2 extends React.Component {

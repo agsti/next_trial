@@ -66,7 +66,7 @@ export default function (props) {
             </View>
         </View>
         <View style={{ flexDirection: "row", alignItems: "center", height: 60 }}>
-            <Button title="Chat" onPress={()=> props.navigation.navigate('Chat')} />      
+            <Button title="Chat" onPress={()=> props.navigation.navigate('chat')} />      
         </View>
     </View>
 }

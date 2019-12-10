@@ -3,8 +3,8 @@ import {  TextInput, View, Text, KeyboardAvoidingView } from 'react-native';
 import Button from '../../components/common/button' 
 import { Formik } from 'formik';
 
-export default props => (
-    <KeyboardAvoidingView style={{ flex: 1, justifyContent: "center" }} enabled behavior="padding" >
+export default function(props) {
+    return <KeyboardAvoidingView style={{ flex: 1, justifyContent: "center" }} enabled behavior="padding" >
         <Text style={{ borderRadius: 20, padding: 10, fontSize: 50, fontWeight: "600" }}>Finishing up</Text>
         <Text style={{ paddingHorizontal: 30, paddingVertical: 30, fontSize: 20, fontWeight: "500", justifyContent: "center" }}>We hope you get value out of PatientChat</Text>
         <Text style={{ paddingHorizontal: 30, paddingVertical: 30, fontSize: 20, fontWeight: "500", justifyContent: "center" }}>Would you mind filling in some extra information?</Text>
@@ -12,7 +12,7 @@ export default props => (
         <Formik
             initialValues={{ email: '', age: '' }}
             onSubmit={values => {
-                props.navigation.navigate('chat');
+                props.navigation.navigate('dashboard');
             }}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -36,4 +36,4 @@ export default props => (
             )}
         </Formik>
     </KeyboardAvoidingView>
-);
+};

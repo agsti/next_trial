@@ -32,7 +32,7 @@ export default class Chat extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={{ flex: 1, justifyContent: "center" }} enabled behavior="height">
+            <KeyboardAvoidingView style={{ flex: 1}} enabled behavior="height">
                 <GiftedChat
                     messages={this.state.messages}
                     onSend={messages => this.onSend(messages)}

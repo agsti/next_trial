@@ -4,13 +4,13 @@ import {TouchableOpacity, Text } from 'react-native'
 
 export default function (props) {
     return <TouchableOpacity style={{ 
-        marginVertical: 30,
+        marginVertical: 10,
         marginHorizontal: 10,
-        padding: 30,
+        padding: 20,
         backgroundColor: "#FAFAFA",
         borderColor: "#AFAFAF",
         borderWidth: 1,
-        borderRadius: 100,
+        borderRadius: 30,
         ...props.style
     }}
         onPress={props.onPress}

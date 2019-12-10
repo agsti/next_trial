@@ -6,10 +6,8 @@ import MainContent from '../components/dashboard/main_content'
 
 export default class DashboardScreen extends React.Component {
 
-
     styleSheet = StyleSheet.create({
         container:{ 
-            marginTop: Platform.OS == "android" ? StatusBar.currentHeight : 0,
             flex:1 ,
             backgroundColor: "pink" 
         },
@@ -19,15 +17,13 @@ export default class DashboardScreen extends React.Component {
         },
     });
 
-
-
-    render(props) {
+    render() {
         return <View style={this.styleSheet.container}>
             <View style={this.styleSheet.bottomBar}>
 
             <MainContent />
             
-            <Bar />
+            <Bar navigation={this.props.navigation}/>
 
             </View>
         </View>
