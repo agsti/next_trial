@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Platform, StatusBar } from 'react-native';
 
-import TopBar from '../components/dashboard/status_bar'
+import Bar from '../components/dashboard/bar'
 import MainContent from '../components/dashboard/main_content'
 
 export default class DashboardScreen extends React.Component {
@@ -27,7 +27,7 @@ export default class DashboardScreen extends React.Component {
 
             <MainContent />
             
-            <TopBar />
+            <Bar />
 
             </View>
         </View>
