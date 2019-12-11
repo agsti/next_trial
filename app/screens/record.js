@@ -9,7 +9,7 @@ import FlowView from '../components/record/flow_view'
 import RecordButton from '../components/record/record_button'
 import PreviewButtons from '../components/record/preview_buttons'
 
-import sample_data from '../sample_data';
+import sample_data from '../data/sample_flow';
 
 
 const { width, height } = Dimensions.get("window");
