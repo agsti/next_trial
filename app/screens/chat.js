@@ -1,5 +1,7 @@
 import React from 'react'
-import { KeyboardAvoidingView } from 'react-native'
+
+import { Header } from 'react-navigation-stack';
+import { KeyboardAvoidingView, StatusBar } from 'react-native'
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export default class Chat extends React.Component {
@@ -32,8 +34,8 @@ export default class Chat extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={{ flex: 1}} enabled behavior="height">
-                <GiftedChat
+            <KeyboardAvoidingView style={{ flex: 1}} enabled behavior="height" keyboardVerticalOffset={Header.HEIGHT + StatusBar.currentHeight}>
+                <GiftedChat style={{ flex: 1}}
                     messages={this.state.messages}
                     onSend={messages => this.onSend(messages)}
                     user={{
