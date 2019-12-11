@@ -7,7 +7,7 @@ import { Video}  from 'expo-av'
 import FlowChooser from '../components/record/flow_chooser'
 import FlowView from '../components/record/flow_view'
 import RecordButton from '../components/record/record_button'
-import PreviewButtons from '../components/record/preview_buttons'
+import ButtonList from '../components/record/button_list'
 
 import sample_data from '../data/sample_flow';
 
@@ -42,9 +42,9 @@ export default class CameraExample extends React.Component {
 
 
   async componentDidMount() {
-    const { status } = await Permissions.askAsync([Permissions.CAMERA, Permissions.AUDIO_RECORDING]);
-    console.log(status)
-    this.setState({ permissionsOk: status === 'granted' });
+    Permissions.askAsync([Permissions.CAMERA, Permissions.AUDIO_RECORDING])
+      .then(({ status }) => this.setState({ permissionsOk: status === 'granted' }))
+      .catch(err => console.log("error getting permissions", err))
   }
 
 
@@ -56,23 +56,24 @@ export default class CameraExample extends React.Component {
     })
   }
 
-  async takeVideo() {
+  takeVideo() {
     if (this.camera) {
       try {
-        const recordPromise = this.camera.recordAsync({options: {quality: "4:3"}});
-        this.setState({ video: recordPromise })
+        this.camera.recordAsync({options: {quality: "4:3"}})
+          .then(video => this.setState({video,
+            step_state: INTERACTION_REVIEW
+          }))
       } catch (e) {
         console.error(e);
       }
     }
   };
 
-  async stopRecording() {
+  stopRecording() {
     this.camera.stopRecording();
-    this.setState({video: await this.state.video})
   }
 
-  async record_button_pressed() {
+  record_button_pressed() {
     const { step_state } = this.state;
     if (step_state == INTERACTION_PENDING) {
       this.takeVideo();
@@ -82,9 +83,7 @@ export default class CameraExample extends React.Component {
 
     } else if (step_state == INTERACTION_RECORDING) {
       this.stopRecording();
-      this.setState({
-        step_state: INTERACTION_REVIEW
-      });
+
     }
   }
 
@@ -95,12 +94,12 @@ export default class CameraExample extends React.Component {
   }
 
   onPreviewClick(item) {
-    if (item == "next") {
+    if (item == "Next") {
       this.setState({
         interaction_step: this.state.interaction_step + 1,
         step_state: INTERACTION_PENDING
       });
-    } else if (item == "re-take") {
+    } else if (item == "Re-take") {
       this.setState({
         step_state: INTERACTION_PENDING
       });
@@ -110,18 +109,23 @@ export default class CameraExample extends React.Component {
   getInteractiveButton(step_state, chosen_interaction, interaction_step) {
     if (step_state == INTERACTION_PENDING) {
       const stepType = chosen_interaction[interaction_step].type;
-      const buttonMode = stepType == "PHOTO" ? "picture" : "video";
-      return <RecordButton
-        onclick={this.record_button_pressed.bind(this)}
-        mode={buttonMode}
-        size={80} />
+      if (stepType == 'PHOTO' || stepType == "VIDEO"){
+        const buttonMode = stepType == "PHOTO" ? "picture" : "video";
+        return <RecordButton
+          onclick={this.record_button_pressed.bind(this)}
+          mode={buttonMode}
+          size={80} />
+      } else if (stepType == "NEXT"){
+
+        return <ButtonList items={["Next"]} onItemClick={this.onPreviewClick.bind(this)} />
+      }
     } else if (step_state == INTERACTION_RECORDING) {
       return <RecordButton
         onclick={this.record_button_pressed.bind(this)}
         mode="recording"
         size={80} />
     } else if (step_state == INTERACTION_REVIEW) {
-      return <PreviewButtons onItemClick={this.onPreviewClick.bind(this)} />
+      return <ButtonList items={["Re-take","Next"]} onItemClick={this.onPreviewClick.bind(this)} />
     }
   }
   

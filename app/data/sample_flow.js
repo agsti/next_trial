@@ -4,7 +4,7 @@ export default [
         questions: [
             { 
                 q:"We will now ask you some questions about how you are recovering following your hip surgery",
-                type: "VIDEO"
+                type: "NEXT"
             },
             { 
                 q:"Have you experienced any unconfortable bleeding from the wound site?",

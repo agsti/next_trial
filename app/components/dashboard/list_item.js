@@ -55,7 +55,7 @@ export default function ({ item, index, elements, onPress }) {
         itemStyle = { ...styles.item, marginBottom: 55 }
     }
     if (cat == 'CHAT' || cat == "RECORD"){
-        itemStyle = {...itemStyle, borderColor: "#AA0000", borderWidth:1}
+        itemStyle = {...itemStyle, borderColor: "#EE0000", borderLeftWidth:2}
     }
     return (
         <TouchableOpacity onPress={onPress}>
