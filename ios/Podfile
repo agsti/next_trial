@@ -36,4 +36,6 @@ target 'patientapp' do
 
 
 
+  pod 'react-native-voice', :path => '../node_modules/react-native-voice'
+
 end

@@ -35,16 +35,5 @@ export default [
         id: "4"
 
     },
-    {
-        text: "Your scar is progressing nicely, click here for time-lapse.",
-        cat: "PROGRESS",
-        id: "5"
-
-    },
-    {
-        text: "Your scar is progressing nicely, click here for time-lapse.",
-        cat: "PROGRESS",
-        id: "6"
-
-    },
+ 
 ];

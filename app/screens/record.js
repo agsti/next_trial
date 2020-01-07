@@ -41,8 +41,9 @@ export default class CameraExample extends React.Component {
   }
 
 
-  async componentDidMount() {
-    Permissions.askAsync([Permissions.CAMERA, Permissions.AUDIO_RECORDING])
+   async componentDidMount() {
+     this.choose_flow(0)
+     await Permissions.askAsync([Permissions.CAMERA, Permissions.AUDIO_RECORDING])
       .then(({ status }) => this.setState({ permissionsOk: status === 'granted' }))
       .catch(err => console.log("error getting permissions", err))
   }
@@ -56,10 +57,10 @@ export default class CameraExample extends React.Component {
     })
   }
 
-  takeVideo() {
+  async takeVideo() {
     if (this.camera) {
       try {
-        this.camera.recordAsync({options: {quality: "4:3"}})
+        return this.camera.recordAsync({options: {quality: "4:3"}})
           .then(video => this.setState({video,
             step_state: INTERACTION_REVIEW
           }))

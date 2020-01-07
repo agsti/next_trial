@@ -1,6 +1,8 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import Button from '../../components/common/button'
+// import VoiceToText from 2components/record/voice_to_text'
+
 export default function (props) {
     return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Text style={{ borderRadius: 20, padding: 10, fontSize: 50, fontWeight: "600" }}>Welcome</Text>
@@ -10,6 +12,7 @@ export default function (props) {
             <Text style={{ fontWeight: "bold" }}>PatientChat does not replace a doctor</Text>
             <Text>, if you think you have to see a doctor, please contact your tusted doctor</Text>
         </Text>
+        {/* <VoiceToText /> */}
         <Button
             title="Next"
             onPress={() => props.navigation.navigate('onboarding2')}
