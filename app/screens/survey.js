@@ -37,15 +37,15 @@ export default class SurveyScreen extends React.Component {
     componentDidMount() {
         this.slideIn();
         BackHandler.addEventListener("hardwareBackPress", () => {
-            if (this.state.backstack.length != 0 && !this.state.animating) {
-                this.previousQuestion();
-                return true;
-            }
             if (this.state.animating){
                 this.state.mainTranslateY.stopAnimation()
                 this.state.helperTranslateY.stopAnimation()
                 this.state.mainOpacity.stopAnimation()
                 this.state.helperOpacity.stopAnimation()
+                return true;
+            }
+            if (this.state.backstack.length != 0) {
+                this.previousQuestion();
                 return true;
             }
             return false;
@@ -54,11 +54,7 @@ export default class SurveyScreen extends React.Component {
     }
 
     onAnswer(question, answer) {
-        if (question.next && question.next != "NONE") {
-            if (this.state.animating){
-                this.state.mainTranslateY.stopAnimation()
-                this.state.helperTranslateY.stopAnimation()
-            }
+        if (question.next && question.next != "NONE" && !this.state.animating) {
             this.nextQuestion();
         }
     }
@@ -112,7 +108,7 @@ export default class SurveyScreen extends React.Component {
             })
         
         
-        ]).start(() => this.swapQuestions());
+        ]).start(() => this.endAnimation());
     }
 
     previousQuestion() {
@@ -146,13 +142,12 @@ export default class SurveyScreen extends React.Component {
                 useNativeDriver: true
             }),
         
-        ]).start(() => this.swapQuestions());
+        ]).start(() => this.endAnimation());
     }
 
-    swapQuestions() {
-
+    endAnimation() {
         this.state.mainTranslateY.setValue(0)
-        this.state.mainTranslateY.setValue(0)
+        this.state.helperTranslateY.setValue(windowHeight)
         this.state.mainOpacity.setValue(1)
         this.setState(({ helperQuestion }) => {
             return {

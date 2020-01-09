@@ -24,49 +24,49 @@ export default
             { 
                 id: 126,
                 question: "How many times?",
-                type: "VIDEO",
+                type: "MSG",
                 next: 127
             },
             { 
                 id: 127,
                 question: "Can you check your tempreature?",
-                type: "VIDEO",
+                type: "MSG",
                 next: 128
             },
             { 
                 id: 128,
                 question: "What is your temperature?",
-                type: "VIDEO",
+                type: "MSG",
                 next: 129
             },
             { 
                 id: 129,
                 question: "How long have you been at that temperature for? An estimate is enough",
-                type: "VIDEO",
+                type: "MSG",
                 next: 130
             },
             { 
                 id: 130,
                 question: "Are you currently in pain?",
-                type: "VIDEO",
+                type: "MSG",
                 next: 131
             },
             { 
                 id: 131,
                 question: "Where?",
-                type: "VIDEO",
+                type: "MSG",
                 next: 132
             },
             { 
                 id: 132,
                 question: "How bad is your pain out of 10? where 1 being you can hardly feel it , and 10 being unbearable",
-                type: "VIDEO",
+                type: "MSG",
                 next: 133
             },
             { 
                 id: 133,
                 question: "Point the camera at the wound to take a picture. If there's a dressing on, just leave it on.",
-                type: "VIDEO",
+                type: "MSG",
                 next: "NONE"
             },
         ]
