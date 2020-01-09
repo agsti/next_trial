@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 24952,
-  "expoServerNgrokUrl": "https://8b-avi.agustibau.patientapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.8b-avi.agustibau.patientapp.exp.direct",
-  "ngrokPid": 24980,
+  "packagerPid": 19205,
+  "expoServerNgrokUrl": "https://wq-ztn.agustibau.patientapp.exp.direct",
+  "packagerNgrokUrl": "https://packager.wq-ztn.agustibau.patientapp.exp.direct",
+  "ngrokPid": 19241,
   "webpackServerPort": null
 }
