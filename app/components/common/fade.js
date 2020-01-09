@@ -1,3 +1,4 @@
+import React from 'react'
 import Animated from 'react-native';
 
 class Fade extends Component {
@@ -50,3 +51,6 @@ class Fade extends Component {
     );
   }
 }
+
+
+export default Fade

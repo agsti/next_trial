@@ -8,6 +8,7 @@ import { View, Easing, Animated } from 'react-native';
 import DashboardScreen from './app/screens/dashboard'
 import RecordScreen from './app/screens/record'
 import ChatScreen from './app/screens/chat'
+import SurveyScreen from './app/screens/survey'
 
 import OnboardingScreen1 from './app/screens/welcome/1'
 import OnboardingScreen2 from './app/screens/welcome/2'
@@ -31,10 +32,11 @@ const stackNavigator = createStackNavigator({
   onboarding4: Onboarding4,
   record: RecordScreen,
   dashboard: DashboardScreen,
-  chat: ChatScreen
+  chat: ChatScreen,
+  survey: SurveyScreen
 },
   {
-    initialRouteName: 'onboarding1',
+    initialRouteName: 'survey',
     headerMode: "screen",
     transitionConfig : () => ({
       transitionSpec: {
