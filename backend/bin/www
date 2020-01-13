@@ -4,20 +4,20 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('backend:server');
-var http = require('http');
 
 var dot_env = require('dotenv');
-
-if (process.env.ENV){
+if (!process.env.ENV || process.env.ENV === "dev"){
+  console.log("Using development .env file")
+  dot_env.config();
+} else {
   const path= `../env/${process.env.ENV}.env`
   console.log("Using " + path)
   dot_env.config({ path: path });
-} else {
-  console.log("no env defined, using development .env file")
 } 
 
+var http = require('http');
+var app = require('../app');
+var debug = require('debug')('backend:server');
 
 /**
  * Get port from environment and store in Express.
