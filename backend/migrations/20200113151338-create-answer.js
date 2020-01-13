@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      flow: {
+      flowId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
@@ -25,7 +25,7 @@ module.exports = {
       value: {
         type: Sequelize.STRING
       },
-      patient: {
+      patientId: {
         type: Sequelize.INTEGER,
         references: {
           model: {

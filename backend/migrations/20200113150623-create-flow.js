@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      trial: {
+      trialId: {
         type: Sequelize.INTEGER,
         references: {
           model: {

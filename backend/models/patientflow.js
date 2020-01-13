@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   PatientFlow.associate = function(models) {
     // associations can be defined here
+    PatientFlow.belongsTo(models.patient);
+    PatientFlow.belongsTo(models.flow);
   };
   return PatientFlow;
 };

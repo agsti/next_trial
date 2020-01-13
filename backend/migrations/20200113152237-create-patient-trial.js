@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      patient: {
+      patientId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
@@ -19,7 +19,7 @@ module.exports = {
         },
         allowNull: false
       },
-      trial: {
+      trialId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
