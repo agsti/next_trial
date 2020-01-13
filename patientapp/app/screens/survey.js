@@ -54,7 +54,14 @@ export default class SurveyScreen extends React.Component {
     }
 
     onAnswer(question, answer) {
-        if (question.next && question.next != "NONE" && !this.state.animating) {
+        console.log(answer)
+        if (question.next && question.next != "NONE") {
+            if (this.state.animating){
+                this.state.mainTranslateY.stopAnimation();
+                this.state.helperTranslateY.stopAnimation();
+                this.state.mainOpacity.stopAnimation();
+                this.state.helperOpacity.stopAnimation();
+            }
             this.nextQuestion();
         }
     }

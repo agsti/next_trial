@@ -24,7 +24,7 @@ export default
             { 
                 id: 126,
                 question: "How many times?",
-                type: "MSG",
+                type: "FREEFORM",
                 next: 127
             },
             { 

@@ -4,7 +4,7 @@ import { View, Text} from 'react-native'
 
 export default function (props) {
     return <View>
-        <Text style={{marginLeft:7, marginBottom:15, fontWeight:"400"}}>{props.value}{props.definition? `: ${props.definition}`:""}</Text>
+        <Text style={{marginLeft:7, marginBottom:15, fontWeight:"600", fontSize: 16}}>{props.value}{props.definition? `: ${props.definition}`:""}</Text>
         <Slider
             style={{ width: 250, height: 40 }}
             minimumValue={props.min_value || 0}
